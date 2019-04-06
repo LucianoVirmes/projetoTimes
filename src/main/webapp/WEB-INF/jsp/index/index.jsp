@@ -9,6 +9,6 @@
 
 </head>
 <body>
-    <h1>Ola mundo</h1>
+    <button><a href="time/cadastro">Cadastrar time</a>
 </body>
 </html>

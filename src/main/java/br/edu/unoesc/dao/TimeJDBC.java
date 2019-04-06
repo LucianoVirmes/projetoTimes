@@ -1,5 +1,7 @@
 package br.edu.unoesc.dao;
 
-public class TimeJDBC {
+import br.edu.unoesc.model.Time;
+
+public class TimeJDBC extends GenericDao<Time>{
 
 }

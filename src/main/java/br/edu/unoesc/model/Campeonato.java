@@ -12,7 +12,7 @@ public class Campeonato {
 	@GeneratedValue
 	private Long codigo;
 	private String nome;
-	private Set<Time> times;
+	//private Set<Time> times;
 	
 	
 	public Campeonato() {
@@ -29,18 +29,18 @@ public class Campeonato {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Set<Time> getTimes() {
-		return times;
-	}
-	public void setTimes(Set<Time> times) {
-		this.times = times;
-	}
+//	public Set<Time> getTimes() {
+//		return times;
+//	}
+//	public void setTimes(Set<Time> times) {
+//		this.times = times;
+//	}
 	
 	public Campeonato(Long codigo, String nome, Set<Time> times) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
-		this.times = times;
+	//	this.times = times;
 	}
 	
 	
