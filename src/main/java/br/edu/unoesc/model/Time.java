@@ -3,14 +3,17 @@ package br.edu.unoesc.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQueries({ @NamedQuery(name = Time.listarTodos, query = "select t from Time t") })
 public class Time {
 	@Id
 	@GeneratedValue
 	private Long codigo;
 	private String nome;
-	
+	public static final String listarTodos = "buscarTodos";
 	
 	public Time() {
 		
