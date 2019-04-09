@@ -3,8 +3,15 @@ package br.edu.unoesc.model;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.ForeignKey;
 
 @Entity
 public class Campeonato {
@@ -12,8 +19,8 @@ public class Campeonato {
 	@GeneratedValue
 	private Long codigo;
 	private String nome;
-	//private Set<Time> times;
-	
+	@OneToMany(mappedBy="campeonato")
+	private Set<CampeonatoTime> campeonatoTime;
 	
 	public Campeonato() {
 	}

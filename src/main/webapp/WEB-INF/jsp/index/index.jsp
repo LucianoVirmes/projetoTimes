@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -8,6 +11,22 @@
 
 </head>
 <body>
+    <table>
+        <thead>
+	        <tr>
+	            <th>Time</th>
+	            <th>Pontuação</th>
+	        <tr>
+        </thead>
+        <tbody>
+            <c:forEach var="time" items="${times}">
+               <tr>
+                   <td>${time.nome}</td>
+               </tr>
+            </c:forEach>
+
+        </tbody>
+    </table>
     <button class="center-block btn btn-default"><a href="time/cadastro">Cadastrar time</a></button>
     <button class="center-block btn btn-default"><a href="campeonato/jogar">Jogar</a></button>
 </body>
