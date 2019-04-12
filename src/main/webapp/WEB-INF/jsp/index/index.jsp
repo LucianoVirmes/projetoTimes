@@ -22,6 +22,8 @@
             <c:forEach var="time" items="${times}">
                <tr>
                    <td>${time.nome}</td>
+                   <td>${time.pontuacao}<td>
+                   <td><a href="time/excluir/${time.codigo }">Excluir</a></td>
                </tr>
             </c:forEach>
 

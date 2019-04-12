@@ -11,18 +11,18 @@
 </head>
 <body>
     	<form method="post">
-            <select name="t1codigo">
+            <select name="time1.codigo">
                 <c:forEach var="time1" items="${times}">
                     <option  value="${time1.codigo}">${time1.nome}</option>
                 </c:forEach>
             </select> 
-            <input type="text" placeholder="Gols" name="gol1" /> <br> 
-            <select name="t2codigo">
+            <input type="text" placeholder="Gols" name="time1.gol" /> <br> 
+            <select name="time2.codigo">
                 <c:forEach var="time2" items="${times}">
                     <option  value="${time2.codigo}">${time2.nome}</option>
                 </c:forEach>
             </select> 
-            <input type="text"placeholder="Gols" name="gol2" /> <br> 
+            <input type="text"placeholder="Gols" name="time2.gol" /> <br> 
             <br> 
             <input style="margin-left: 18%" type="submit"name="enviar" />
             </form>

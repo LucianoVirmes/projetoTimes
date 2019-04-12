@@ -6,14 +6,19 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 public class Conexao {
-	protected EntityManagerFactory emf = Persistence.createEntityManagerFactory("MinhaPersistencia");
-	protected EntityManager em = emf.createEntityManager();
-	protected EntityTransaction et = em.getTransaction();
+	protected EntityManagerFactory emf =  null;
+	protected EntityManager em = null;
+	protected EntityTransaction et = null;
 	
 	public void conectar() {
-		et.begin();
+		 emf = Persistence.createEntityManagerFactory("MinhaPersistencia");
+		 em = emf.createEntityManager();
+		 et = em.getTransaction();
+		 
+		 et.begin();
 	}
 	public void desconectar() {
 		em.close();
+		emf.close();
 	}
 }

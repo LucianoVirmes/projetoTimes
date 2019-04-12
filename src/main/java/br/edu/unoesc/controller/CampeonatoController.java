@@ -7,6 +7,7 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.edu.unoesc.dao.CampeonatoTimeJDBC;
 import br.edu.unoesc.dao.TimeJDBC;
 import br.edu.unoesc.model.Time;
 
@@ -16,17 +17,21 @@ public class CampeonatoController {
 	@Inject
 	private Result result;
 	@Inject
-	private TimeJDBC jdbc;
+	private TimeJDBC timejdbc;
+	@Inject
+	private CampeonatoTimeJDBC ctjdbc;
 	
 	public CampeonatoController() {
-		
+		System.out.println("passou");
 	}
 	@Get("/jogar")
 	public void jogar() {
-		result.include("times", jdbc.listar(Time.listarTodos, Time.class));
+	
+		result.include("times", timejdbc.listar(Time.listarTodos, Time.class));
 	}
 	@Post("/jogar")
 	public void jogar(Time time1, Time time2) {
+		ctjdbc.getGanhador(time1, time2);
 		result.redirectTo(IndexController.class).index();
 	}
 }

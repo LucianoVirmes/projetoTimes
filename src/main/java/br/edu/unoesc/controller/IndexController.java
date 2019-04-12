@@ -18,5 +18,6 @@ public class IndexController {
 	@Get("/")
 	public void index() {
 		result.include("times", jdbc.listar(Time.listarTodos, Time.class));
+		
 	}
 }
