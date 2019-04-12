@@ -13,9 +13,6 @@ public class Conexao {
 	public void conectar() {
 		 emf = Persistence.createEntityManagerFactory("MinhaPersistencia");
 		 em = emf.createEntityManager();
-		 et = em.getTransaction();
-		 
-		 et.begin();
 	}
 	public void desconectar() {
 		em.close();

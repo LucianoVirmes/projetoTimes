@@ -1,5 +1,5 @@
 package br.edu.unoesc.dao;
- 
+
 import java.util.List;
 
 import br.edu.unoesc.util.Conexao;
@@ -9,6 +9,9 @@ public abstract class GenericDao<T> extends Conexao implements CrudDao<T> {
 	@Override
 	public void inserir(T dado) {
 		conectar();
+		et = em.getTransaction();
+		et.begin();
+
 		try {
 			em.persist(dado);
 			et.commit();
@@ -30,7 +33,6 @@ public abstract class GenericDao<T> extends Conexao implements CrudDao<T> {
 			e.printStackTrace();
 			return null;
 		} finally {
-			et.commit();
 			desconectar();
 		}
 	}
@@ -38,14 +40,13 @@ public abstract class GenericDao<T> extends Conexao implements CrudDao<T> {
 	@Override
 	public List<T> listar(String query, Class<T> classe) {
 		conectar();
+
 		try {
 			return em.createNamedQuery(query, classe).getResultList();
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
-		}
-		finally {
-			et.commit();
+		} finally {
 			desconectar();
 		}
 	}
@@ -53,6 +54,9 @@ public abstract class GenericDao<T> extends Conexao implements CrudDao<T> {
 	@Override
 	public void alterar(T dado) {
 		conectar();
+		et = em.getTransaction();
+		et.begin();
+
 		try {
 			em.merge(dado);
 			et.commit();
@@ -67,6 +71,9 @@ public abstract class GenericDao<T> extends Conexao implements CrudDao<T> {
 	@Override
 	public void remover(Class<T> classe, Long cod) {
 		conectar();
+		et = em.getTransaction();
+		et.begin();
+
 		try {
 			em.remove(em.find(classe, cod));
 			et.commit();
