@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
@@ -19,7 +20,7 @@ public class Time {
 	@GeneratedValue
 	private Long codigo;
 	private String nome;
-	@OneToMany(mappedBy="time", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="time", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<CampeonatoTime> campeonatoTime = new HashSet<>();
 	public static final String listarTodos = "buscarTodos";
 	
